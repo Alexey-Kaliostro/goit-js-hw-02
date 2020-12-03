@@ -17,7 +17,21 @@ console.log(" ");
 
 // Task START
 
+const logItems = function(array) {
+  // твой код
 
+  let ordererdList = "";
+
+  for (let i = 0; i < array.length; i++){
+    ordererdList += `${i + 1} - ${array[i]}\n`;
+
+    
+
+  }
+  console.log(ordererdList);
+  
+
+};
 
 //Task END
 
