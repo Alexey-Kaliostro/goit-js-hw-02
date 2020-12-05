@@ -20,18 +20,13 @@ console.log(" ");
 const checkForSpam = function(message) {
   // твой код
   
-  const firstSpamWord = 'sale';
-  const secondSpamWord = 'spam';
-  let lowerCaseString = message.toLowerCase();
-  
-  if (lowerCaseString.includes(firstSpamWord) || lowerCaseString.includes(secondSpamWord)) {
-    message = `true`;
+  if (message.toLowerCase().includes('spam') || message.toLowerCase().includes('sale')) {
+      return true;
   }
   else {
-    message = `false`;
-  }
-  
-  return message;
+      return false;
+    }
+    
 };
 
 /*
@@ -47,3 +42,24 @@ console.log(checkForSpam('[SPAM] How to earn fast money?')); // true
 
 
 // Task END
+
+
+// first solution
+/*
+const checkForSpam = function(message) {
+  // твой код
+  
+  const firstSpamWord = 'sale';
+  const secondSpamWord = 'spam';
+  let lowerCaseString = message.toLowerCase();
+  
+  if (lowerCaseString.includes(firstSpamWord) || lowerCaseString.includes(secondSpamWord)) {
+    message = `true`;
+  }
+  else {
+    message = `false`;
+  }
+  
+  return message;
+};
+*/
