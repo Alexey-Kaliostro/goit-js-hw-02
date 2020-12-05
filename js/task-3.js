@@ -5,31 +5,38 @@ console.log(" ");
 //=-=-=-==-=-=-=-=-=-=-=-==-=-=-=-=-
 
 /*
-Напиши скрипт имитирующий авторизацию администратора в панели управления.
-
-Есть переменная message в которую будет записано сообщение о результате. При загрузке страницы у посетителя запрашивается пароль через prompt:
-
-Если нажали Cancel, записать в message строку 'Отменено пользователем!'
-В протовном случае, если введен пароль который совпадает со значением константы ADMIN_PASSWORD, записать в message строку 'Добро пожаловать!'
-В противном случае, то есть если ни одно из предыдущих условий не выполнилось, записать в message строку 'Доступ запрещен, неверный пароль!'
-После всех проверок вывести в alert значение переменной message.
+Напиши фукцнию findLongestWord(string), 
+которая принимает параметром произвольную строку 
+(в строке будут только слова и пробелы)
+и возвращает самое длинное слово в этой строке.
 */
 
 // Task START
 
-const ADMIN_PASSWORD = 'jqueryismyjam';
-let message;
+const findLongestWord = function(string) {
+  // твой код
+  
+  let wordList = string.split(" ");
+  let longestWord = wordList[0];
+  
+  for (word of wordList) {
+    if (word.length > longestWord.length) {
+      longestWord = word;
 
-const password = prompt(`PLease enter your password`);
+    }
+    
+  } 
+  return longestWord;
+};
 
-if (password === null) {
-    message = `Отменено пользователем!`;
-}
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(findLongestWord('The quick brown fox jumped over the lazy dog')); // 'jumped'
 
-else (message = password === ADMIN_PASSWORD ? "Добро пожаловать!" : "Доступ запрещен, неверный пароль!");
-   
-alert(message);
-console.log(`${message}\n Обновите страницу для перезапуска скрипта ввода пароля`);
+console.log(findLongestWord('Google do a roll')); // 'Google'
+
+console.log(findLongestWord('May the force be with you')); // 'force'
 
 // Task END
 console.log(" ");
