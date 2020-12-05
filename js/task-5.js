@@ -6,73 +6,44 @@ console.log(" ");
 
 /*
 
-Пользователь может оформить доставку товара к себе в страну, указав ее при посещении страницы в prompt. 
-Учти, пользователь может ввести имя страны не только буквами нижнего регистра, а к примеру 'кИтАЙ'.
-
-Напиши скрипт который выводит сообщение о стоимости доставки в указанную страну. 
-Обязательно используй switch. 
-Формат сообщения: 'Доставка в [страна] будет стоить [цена] кредитов'.
-
-Но доставка есть не везде, если указанной страны нет в списке, 
-то выводи в alert сообщение 'В вашей стране доставка не доступна'.
-
-Ниже приведен список стран и стоимость доставки.
-
-Китай - 100 кредитов
-Чили - 250 кредитов
-Австралия - 170 кредитов
-Индия - 80 кредитов
-Ямайка - 120 кредитов
-
+Напиши функцию checkForSpam(message), 
+принимающую 1 параметр message - строку. 
+Функция проверяет ее на содержание слов spam и sale. 
+Если нашли зарещенное слово то функция возвращает true, 
+если запрещенных слов нет функция возвращает false. 
+Слова в строке могут быть в произвольном регистре.
 
 */
 
 // Task START
 
-const enterCountryName = prompt(`Пожалуйста укажите страну доставки`);
-let country;
-let price;
+const checkForSpam = function(message) {
+  // твой код
+  
+  const firstSpamWord = 'sale';
+  const secondSpamWord = 'spam';
+  let lowerCaseString = message.toLowerCase();
+  
+  if (lowerCaseString.includes(firstSpamWord) || lowerCaseString.includes(secondSpamWord)) {
+    message = `true`;
+  }
+  else {
+    message = `false`;
+  }
+  
+  return message;
+};
 
-if (enterCountryName === null) {
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(checkForSpam('Latest technology news')); // false
 
-  alert(`Операция отменена пользователем`);
+console.log(checkForSpam('JavaScript weekly newsletter')); // false
 
-}else {
+console.log(checkForSpam('Get best sale offers now!')); // true
 
- country = enterCountryName[0].toUpperCase() + enterCountryName.slice(1).toLowerCase();
-
-switch (country) {
-
-    case "Китай":
-        price = 100;
-        break;
-
-    case "Чили":
-        price = 250;
-        break;
-    
-    case "Австралия":
-        price = 170;
-        break;
-    
-    case "Индия":
-        price = 80;
-        break;
-    
-    case "Ямайка":
-        price = 120;
-        break;
-    
-    
-
-    default:
-        alert("В вашей стране доставка не доступна");
-}
-}
-
-if (price > 0) {
-    alert(`Доставка в ${country} будет стоить ${price} кредитов`);
-} 
+console.log(checkForSpam('[SPAM] How to earn fast money?')); // true
 
 
 // Task END
