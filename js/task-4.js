@@ -5,42 +5,56 @@ console.log(" ");
 //=-=-=-==-=-=-=-=-=-=-=-==-=-=-=-=-
 
 /*
+Напиши функцию formatString(string) 
+которая принимает строку и форматирует ее если необходимо.
 
-На счету пользователя есть 23580 кредитов, значение хранится в переменной credits (создай и присвой).
- Пользователь решает купить ремонтных дроидов, которые стоят по 3000 кредитов за штуку. 
- Цена одного дроида хранится в переменной pricePerDroid (создай и присвой).
-
-При посещении страницы, используя prompt, необходимо спросить количество дроидов которые пользователь хочет купить и сохранить в переменную.
-
-Напиши скрипт который:
-
-Если в prompt была нажата кнопка Cancel, выводит в консоль сообщение 'Отменено пользователем!'.
-В противном случае, рассчитывает общую цену заказа и сохраняет в переменной totalPrice.
-Проверяет сможет ли пользователь оплатить заказ:
-если сумма к оплате превышает количество кредитов на счету, выводи в консоль сообщение 'Недостаточно средств на счету!'.
-в противном случае необходимо посчитать остаток кредитов на счету и вывести сообщение 'Вы купили [число] дроидов, на счету осталось [число] кредитов.'.
+Если длина строки не превышает 40 символов, 
+функция возвращает ее в исходном виде.
+Если длина больше 40 символов, 
+то функция обрезает строку до 40-ка символов 
+и добавляет в конец строки троеточие '...', 
+после чего возвращает укороченную версию.
 
 */
 
 // Task START
 
-let credits = 23500;
-const pricePerDroid = 3000;
+const formatString = function(string) {
+  // твой код
+  const maxChar = 40;
 
-
-const orderedQty = prompt(`Пожалуйста введите количество Дроидов для покупки`);
-let totalPrice = pricePerDroid * orderedQty;
-let accountBalance = credits - totalPrice;
-let message;
+  const formatString = string.length <= 40 ? string : `${string.slice(0, 40)}...`;
+  return formatString;
 
 
 
-if (orderedQty === null) {
-    message = "Отменено пользователем!";
-} else (message = totalPrice <= credits ? `Вы купили ${orderedQty} дроидов, на счету осталось ${accountBalance} кредитов.` : `Недостаточно средств на счету!`);
-console.log(message);
+  // first solution
+ /* if (string.length <= maxChar) {
+    return string;
 
-console.log(`Обновите страницу для перезапуска скрипта покупки Дроидов`);
+  } else if (string.length > maxChar);
+  return `${string.slice(0, 40)}...`;*/
+
+};
+
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(formatString('Curabitur ligula sapien, tincidunt non.'));
+// вернется оригинальная строка
+
+console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.'));
+// вернется форматированная строка
+
+console.log(formatString('Curabitur ligula sapien.'));
+// вернется оригинальная строка
+
+console.log(
+  formatString(
+    'Nunc sed turpis. Curabitur a felis in nunc fringilla tristique.',
+  ),
+);
+// вернется форматированная строка
 
 // Task END
 console.log(" ");
